@@ -1,6 +1,3 @@
-db
-docker-data
-!docker-data/dms/config/rspamd/custom-commands.conf
-www
 .env
 .DS_Store
+volume

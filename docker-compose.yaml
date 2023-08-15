@@ -6,8 +6,8 @@ services:
     container_name: roundcubemail
 #    restart: unless-stopped
     volumes:
-      - ./www:/var/www/html
-      - ./db/sqlite:/var/roundcube/db
+      - ./volume/${VERSION}/www:/var/www/html
+      - ./volume/${VERSION}/db/sqlite:/var/roundcube/db
     environment:
       - ROUNDCUBEMAIL_DB_TYPE=sqlite
       - ROUNDCUBEMAIL_SKIN=elastic
@@ -27,10 +27,10 @@ services:
       - "4190:4190"
       - "11334:11334"
     volumes:
-      - ./docker-data/dms/mail-data/:/var/mail/
-      - ./docker-data/dms/mail-state/:/var/mail-state/
-      - ./docker-data/dms/mail-logs/:/var/log/mail/
-      - ./docker-data/dms/config/:/tmp/docker-mailserver/
+      - ./volume/${VERSION}/dms/mail-data/:/var/mail/
+      - ./volume/${VERSION}/dms/mail-state/:/var/mail-state/
+      - ./volume/${VERSION}/dms/mail-logs/:/var/log/mail/
+      - ./volume/${VERSION}/dms/config/:/tmp/docker-mailserver/
     environment:
       - ENABLE_RSPAMD=1
       - ENABLE_CLAMAV=1
